@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机墙纸app</title>
+  <style>
+
+  .body1{
+    width: 1200px;
+    height: 1200px;
+    /* background-color: pink; */
+    background-image: url(./img/_20221019180551.jpg);
+    background-size: 1200px 1200px;
+    position: relative;
+  }
+  .dj{
+    position: relative;
+    top: -460px;
+    left: 524px;
+
+
+  }
+  .dj button{
+    width: 261px;
+    height: 100px;
+    font-size: 20px;
+  }
+  .qz{
+       width: 903px;
+    height: 520px;
+    position: relative;
+    top: -1146px;
+    left: 195px;
+    background-color: rgb(189, 162, 184);
+    opacity: 50%;
+  }
+  .ssa{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 293px;
+    left: 475px;
+    opacity: 80%;
+  }
+  .ssa img{
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div class="body1">
+  </div>
+ <div class="dj">
+  <button >点击切换</button>
+ </div>
+ <div class="qz"></div>
+ <div class="ssa">
+  <img src="./img/41CN3WtBUgVfgfZaCz9iRQ.png" alt="">
+ </div>
+</body>
+</html>
+
+<script>
+  // //设置函数变量
+  // function aa(n,m) {
+  //     return parseInt(Math.random()*(m-n)+n)
+  // }
+  // var oDiv=document.getElementsByTagName('button')[0];
+  // //点击更换背景颜色
+  // oDiv.onclick=function () {
+  //     this.style.background='rgba('+aa(0,256)+','+aa(0,256)+','+aa(0,256)+','+Math.random()+')'//=号后面是字符串拼接
+  // }
+  const btn =document.querySelector('button')
+  const qzo =document.querySelector('.qz')
+  btn.addEventListener("click" ,function(){
+        // 随机颜色函数
+        // 1. 自定义一个随机颜色函数
+        function getRandomColor(flag = true) {
+            if (flag) {
+                // 3. 如果是true 则返回 #ffffff
+                let str = '#'
+                let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+                    // 利用for循环随机抽6次 累加到 str里面
+                for (let i = 1; i <= 6; i++) {
+                    // 每次要随机从数组里面抽取一个  
+                    // random 是数组的索引号 是随机的
+                    let random = Math.floor(Math.random() * arr.length)
+                        // str = str + arr[random]
+                    str += arr[random]
+                }
+                return str
+
+            } else {
+                // 4. 否则是 false 则返回 rgb(255,255,255)
+                let r = Math.floor(Math.random() * 256) // 55
+                let g = Math.floor(Math.random() * 256) // 89
+                let b = Math.floor(Math.random() * 256) // 255
+                return `rgb(${r},${g},${b})`
+            }
+        }
+        // ddds
+        const countdown = document.querySelector('.countdown')
+        qzo.style.backgroundColor = getRandomColor()
+        qzo.style.opacity="40%"
+  })
+</script>
